@@ -1,6 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import PropTypes from 'prop-types'
+import TextForm from './TextForm'
 export default function Navbar(props) {
+    const [searchin,setSearch]=useState('Search in the Text-Box ');
+    const handleonchange=(event)=>{
+             setSearch(event.target.value)
+    }
+    const handletosearch=()=>{
+            //  if({TextForm text}.search(searchin)>=0){
+            //     setSearch('Yes')
+            //  }
+            //  else{
+            //     setSearch('No')
+            //  }
+    }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand" href="#">{props.title}</a>
@@ -16,10 +29,8 @@ export default function Navbar(props) {
         <a className="nav-link" href="/">{props.aboutText}<span className="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <input className="form-control mr-sm-2" type="search" placeholder="Search" value={searchin} onChange={handleonchange}   aria-label="Search"/>
+      <button className="btn btn-outline-success my-2 my-sm-0"  onClick={handletosearch}>Search</button>
   </div>
 </nav>
   )
