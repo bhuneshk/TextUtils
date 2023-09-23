@@ -15,24 +15,29 @@ export default function Navbar(props) {
             //  }
     }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">{props.title}</a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-  <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul className="navbar-nav mr-auto">
-      <li className="nav-item active">
-        <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-      </li>
-      <li className="nav-item active">
-        <a className="nav-link" href="/">{props.aboutText}<span className="sr-only">(current)</span></a>
-      </li>
-    </ul>
-      <input className="form-control mr-sm-2" type="search" placeholder="Search" value={searchin} onChange={handleonchange}   aria-label="Search"/>
-      <button className="btn btn-outline-success my-2 my-sm-0"  onClick={handletosearch}>Search</button>
-  </div>
-</nav>
+    <nav className={`navbar navbar-expand-lg  bg-${props.mode} navbar-${props.mode}`}>
+    <div className="container-fluid">
+      <a className="navbar-brand" href="/">TextUtils</a>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+            <a className="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link active" aria-current="page" href="/">About</a>
+          </li>
+          
+        </ul>
+      </div>
+      <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`} >
+  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={props.toggleMode}/>
+  <label htmlForfor="flexSwitchCheckDefault" className={'form-check-label'}>{`${props.mode==='light'?'Enable Dark Mode':'Enable Light Mode'}`}</label>
+</div>
+    </div>
+  </nav>
   )
 }
 Navbar.propTypes={
