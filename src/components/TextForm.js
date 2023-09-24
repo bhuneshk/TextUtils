@@ -11,7 +11,7 @@ export default function TextForm(props) {
    const ChangetoLowerCase=()=>{
          let newText=text.toLowerCase();
          setText(newText)
-         props.showAlert('Changed to UpperCase','Success')
+         props.showAlert('Changed to LowerCase','Success')
    }
 
    const ClearText=()=>{
@@ -59,7 +59,7 @@ export default function TextForm(props) {
         <div  className='container my-3'>
              <h2>Your Text Summary</h2>
              <p>{words} words and {text.length} characters</p>
-             <p>{text.split(' ').length*0.008} Minutes read</p>
+             <p>{words*0.008} Minutes read</p>
              <h2>Preview</h2>
              <p>{text}</p>
         </div>
