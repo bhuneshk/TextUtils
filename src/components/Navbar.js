@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import PropTypes from 'prop-types'
-import TextForm from './TextForm'
+// import TextForm from './TextForm'
 // import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
